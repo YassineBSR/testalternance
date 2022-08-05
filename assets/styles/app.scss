@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import '~bootstrap/scss/bootstrap';
+
+@import './layout/header';
+@import './layout/footer';
+$font: 'Roboto',sans-serif;
+$title: #DC5E44;
+$text-color: #131313;
+
+body {
+    background-color: #E4E6EC;
+    font-family: $font;
+
+}
+
+h1{
+    color: $title;
+}
+
