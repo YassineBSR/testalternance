@@ -1,25 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}SpaceBlog - Home{% endblock %}
 
 {% block body %}
 <div class="container">
-    <div class="card border border-0 bg-dark text-white mb-5">
-        <img src="{{ asset('images/cover.png') }}" class="card-img" alt="...">
-    </div>
-    <div>
-        <h1 class="fw-bold title">Nos Articles</h1>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-              <div class="card h-100">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                </div>
-              </div>
-            </div>
+
+  <div class="card border border-0 bg-dark text-white mb-5">
+    <img src="{{ asset('images/cover.png') }}" class="card-img" alt="...">
+  </div>
+  <div>
+    <h1 class="fw-bold title mb-5">Nos Articles</h1>
+    
+    <div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+      {% for article in articles %}
+      <div class="col">
+        <div class="card h-100">
+          <img src="{{ article.imageName ? vich_uploader_asset(article) }}" class="card-img-top" height="200" width="auto" alt="...">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">{{ article.title }}</h5>
+            <a href="{{ path('app_articles_show', {'id': article.id}) }}" class="stretched-link"></a>
           </div>
+        </div>
+      </div>
+      {% endfor %}
     </div>
+    
+  </div> 
 </div>
+
 
 {% endblock %}

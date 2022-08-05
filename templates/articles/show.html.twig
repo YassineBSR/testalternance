@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SpaceBolg - {{ article.title }}{% endblock %}
+
+{% block body %}
+<div class="container">
+    <a href="{{ path('app_home') }} " class="btn btn-primary btn-lg mb-5 mt-3 rounded-pill">Retour</a>
+
+    <div class="card mb-3">
+        <img src="{{ article.imageName ? vich_uploader_asset(article) }}" class="card-img-top mb-3 " alt="{{ article.title }}">
+        <div class="card-body">
+            <h2 class="card-title mb-4 text-center fw-bold">{{ article.title }}</h2>
+            <p class="card-text">{{ article.content }}</p>
+            <p class="card-text"> <small class="text-muted">Publié le {{ article.createAt ? article.createAt|date(' d/m/Y  H:i') : '' }}</small></p>
+        </div>
+    </div>
+  
+
+   
+</div>
+
+{% endblock %}

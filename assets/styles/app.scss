@@ -13,7 +13,22 @@ body {
 
 }
 
-h1{
+h1,h5, h2{
     color: $title;
 }
 
+footer{
+    background-color: $title !important;
+}
+
+.btn-primary {
+    color: white;
+    background-color: $title;
+    border-color: $title;
+}
+
+.btn-primary:hover {
+    color: $title;
+    background-color: white;
+    border-color: $title
+}

@@ -6,11 +6,12 @@ use App\Repository\ArticlesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: ArticlesRepository::class)]
 /**
- *@Vich\Uploadable 
+ *@Vich\Uploadable
  */
 class Articles
 {
