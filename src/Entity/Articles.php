@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use Gedmo\Mapping\Annotation as Gedmo;
 use App\Repository\ArticlesRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 #[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: ArticlesRepository::class)]
@@ -23,9 +25,12 @@ class Articles
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
+    #[ORM\Column(length: 255, type: 'string')]
+    #[Gedmo\Slug(fields: ['id', 'title'])]
+    private $slug;
+
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
-
     
          /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
@@ -60,6 +65,11 @@ class Articles
         $this->title = $title;
 
         return $this;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     public function getContent(): ?string

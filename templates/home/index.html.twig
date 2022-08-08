@@ -18,7 +18,7 @@
           <img src="{{ article.imageName ? vich_uploader_asset(article) }}" class="card-img-top" height="200" width="auto" alt="...">
           <div class="card-body">
             <h5 class="card-title fw-bold">{{ article.title }}</h5>
-            <a href="{{ path('app_articles_show', {'id': article.id}) }}" class="stretched-link"></a>
+            <a href="{{ path('app_articles_show', {'slug': article.slug}) }}" class="stretched-link"></a>
           </div>
         </div>
       </div>
